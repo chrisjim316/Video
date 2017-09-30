@@ -6,14 +6,13 @@ body, html,.container {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .overall-container {
   display:table;
   width: 100%;
   margin-top: -50px;
-
   box-sizing: border-box;
 }
 
@@ -30,7 +29,7 @@ body, html,.container {
 /* Navigation - left side */
 .cell-1 {   
   background: #009999;
-  height: 800px;
+  height: 1400px;
   padding-left: 30px;
   padding-top: 150px;
 }
@@ -50,6 +49,12 @@ body, html,.container {
   height: 50px;
 }
 
+#chatOutput {
+  background-color: white;
+  color: black;
+  height: 50%;
+}
+
 .well {
   background-color: #009999;
 }
@@ -57,10 +62,11 @@ body, html,.container {
 chatbox {
   position: relative;
   display: block;
-  top: 200px;
+  top: 600px;
   background-color: #004d4d !important; 
   width: 90%;
   height: 300px;
+  color: black;
 }
 
 .well-video {
