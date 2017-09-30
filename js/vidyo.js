@@ -28,7 +28,7 @@ var vidyoConnector;
       // To join a video conference call Connect method
       vidyoConnector.Connect({
         host:"prod.vidyo.io",  // Server name, for most production apps it will be prod.vidyo.io
-        token: token// "cHJvdmlzaW9uAHVzZXIxQGVkNjU4Ni52aWR5by5pbwA2MzY3NDEwMDg5NwAAZTUyODllZTRkMTYzNDhiYWQ0YTYwYzYzOTQ2ZWEyMDliYWRjZjkxODk3NzcxY2M0NzE3ODZlZjMzOTcyZTc4MTQwMTdkM2Q5ZGQ4YTNkYzRlODk4ZWU2YmY3MDk1MTc4",          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
+        token: token,// "cHJvdmlzaW9uAHVzZXIxQGVkNjU4Ni52aWR5by5pbwA2MzY3NDEwMDg5NwAAZTUyODllZTRkMTYzNDhiYWQ0YTYwYzYzOTQ2ZWEyMDliYWRjZjkxODk3NzcxY2M0NzE3ODZlZjMzOTcyZTc4MTQwMTdkM2Q5ZGQ4YTNkYzRlODk4ZWU2YmY3MDk1MTc4",          // Add generated token (https://developer.vidyo.io/documentation/4-1-16-8/getting-started#Tokens)
         displayName:"Culturoo",  // Display name
         resourceId:"demoRoom", // Room name
         onSuccess: function(){
