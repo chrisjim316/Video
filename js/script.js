@@ -1,4 +1,3 @@
-$(document).ready( function() {
   var vidyoConnector;
 
    // Callback method when VidyoIO is done loading (pointer to this method is passed in the onload parameter while including the
@@ -41,4 +40,3 @@ $(document).ready( function() {
       })
     }
 
-});
