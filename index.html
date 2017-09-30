@@ -42,8 +42,11 @@
           </div>
           <h2><span id="description"></span></h2>
           <h2><span id="temp"></span><span id="tempUnit" ></span></h2>
+          <div class="well" id="chatOutput">
+            <!-- chat output -->
+          </div>
         </div>
-      <input class="form-control chat-input"></input>
+      <input class="form-control chat-input" id="text" onkeyup="sendText()"></input>
       <div class="callButtons">
         <button class="btn btn-primary" alt="Toggle Video"><span class="glyphicon glyphicon-facetime-video" style="font-size:2.5em;"></span></button>
         <button class="btn btn-success" alt="Mute"><span class="fa fa-3x fa-deaf"></span></button>
