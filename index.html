@@ -1,16 +1,14 @@
 
-<head>
+<head> 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- import Athiti font from google fonts -->
+  <!-- import Athiti font from google fonts -->  
   <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
-  <!-- importing font awesome icons -->
+  <!-- importing font awesome icons --> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- linking bootstrap to index.html-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- linking style.css to index.html -->
+  <!-- linking style.css to index.html --> 
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <!-- import jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- import jQuery --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
   <!-- linking script.css to index.html -->
   <script type="text/javascript" src="js/script.js"></script>
   <!-- Including the Vidyo.io package by adding the javascript path. -->
@@ -30,25 +28,38 @@
 
 <!-- body layout -->
 <div class="overall-container">
-  <div class="row">
+  <div class="row"> 
     <!-- left side -->
-    <div class="cell-1" style="padding-left: 30px;">
-      <h1>Suggestions</h1>
-      <h2><div class="well chatbox" style="width: 80%; height: 500px;">Chatbox</div></h2>
+    <div class="cell-1">
+        <div class="well chatbox" style="width: 80%; height: 500px;">
+          <div class="weather"> 
+            <div class="weatherContainer ">
+              <h2><span id="location"></span></h2>
+            </div>
+          </div>
+          <h2><span id="description"></span></h2>
+          <h2><span id="temp"></span><span id="tempUnit" ></span></h2>
+        </div>
       <input class="form-control chat-input"></input>
+      <div class="callButtons">
+        <button class="btn btn-primary" alt="Toggle Video"><span class="glyphicon glyphicon-facetime-video" style="font-size:2.5em;"></span></button>
+        <button class="btn btn-success" alt="Mute"><span class="fa fa-3x fa-deaf"></span></button>
+        <button class="btn btn-danger" alt="End Call"><span class="glyphicon glyphicon-earphone" style="font-size:2.5em;"></span></button>
+        <button class="btn btn-info" alt="Add User"><span class="glyphicon glyphicon-plus-sign" style="font-size:2.5em;"></span></button>
+      </div>
     </div>
-
+    
     <!-- right side -->
     <div class="cell cell-3 col-md-8">
       <h1 style="text-align:center;"> Say HI to (insert name) </h1>
       <h1 class="well well-video">
-        <div id="renderer">
-
-        </div>
+        <div id="renderer"></div>
       </h1>
     </div>
   </div>
-</div>
-
-
+</div>  
+  
+  
 </body>
+
+
