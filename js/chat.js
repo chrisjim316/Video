@@ -6,57 +6,68 @@ skylink.init({
 });
 
 function setName() {
-var input = document.getElementById('name');
-skylink.setUserData({
-name: "Temp Display Name" //input.value
-});
+  var username = getParameterByName('username');
+  skylink.setUserData({
+    name: username
+  });
 }
+setName();
 
 function joinRoom() {
-skylink.joinRoom();
+  skylink.joinRoom();
 }
 
 function leaveRoom() {
-skylink.leaveRoom();
+  skylink.leaveRoom();
 }
 
 function sendMessage() {
-var input = document.getElementById('text');
-skylink.sendP2PMessage(input.value);
-input.value = '';
+  var input = document.getElementById('text');
+  skylink.sendP2PMessage(input.value);
+  input.value = '';
 }
 
 function addMessage(message, className) {
-var chatbox = document.getElementById('chatOutput'),
-div = document.createElement('div');
-div.className = className;
-div.textContent = message;
-chatbox.appendChild(div);
+  var chatbox = document.getElementById('chatOutput'),
+  div = document.createElement('div');
+  div.className = className;
+  div.textContent = message;
+  chatbox.appendChild(div);
 }
 
 skylink.on('peerJoined', function(peerId, peerInfo, isSelf) {
-var user = 'You';
-if(!isSelf) {
-user = peerInfo.userData.name || peerId;
-}
-addMessage(user + ' joined the room', 'action');
+  var user = 'You';
+  if(!isSelf) {
+    user = peerInfo.userData.name || peerId;
+  }
+  addMessage(user + ' joined the room', 'action');
 });
 
 
 skylink.on('peerLeft', function(peerId, peerInfo, isSelf) {
-var user = 'You';
-if(!isSelf) {
-user = peerInfo.userData.name || peerId;
-}
-addMessage(user + ' left the room', 'action');
+  var user = 'You';
+  if(!isSelf) {
+    user = peerInfo.userData.name || peerId;
+  }
+  addMessage(user + ' left the room', 'action');
 });
 
 skylink.on('incomingMessage', function(message, peerId, peerInfo, isSelf) {
-var user = 'You',
-className = 'you';
-if(!isSelf) {
-user = peerInfo.userData.name || peerId;
-className = 'message';
-}
-addMessage(user + ': ' + message.content, className);
+  var user = 'You',
+  className = 'you';
+  if(!isSelf) {
+    user = peerInfo.userData.name || peerId;
+    className = 'message';
+  }
+  addMessage(user + ': ' + message.content, className);
 });
+
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+  results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
