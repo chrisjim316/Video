@@ -30,13 +30,16 @@ body, html,.container {
 /* Navigation - left side */
 .cell-1 {   
   background: #009999;
-  height: 1000px;
+  height: 800px;
   padding-left: 30px;
   padding-top: 150px;
 }
 
 /* Content - right side */
 .cell-3 {
+  display: block;
+  position: relative;
+  top: -85px;
   background: #004d4d; 
   min-height: 100%;
 }
