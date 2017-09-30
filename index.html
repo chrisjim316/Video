@@ -1,21 +1,25 @@
-<head> 
+<head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- import Athiti font from google fonts -->  
+  <!-- import Athiti font from google fonts -->
   <link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
-  <!-- importing font awesome icons --> 
+  <!-- importing font awesome icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- linking style.css to index.html --> 
+  <!-- linking style.css to index.html -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <!-- linking bootstrap to index.html-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- import jQuery --> 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+  <!-- import jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- linking script.css to index.html -->
   <script type="text/javascript" src="js/script.js"></script>
   <!-- linking vidyo.js to index.html -->
   <script src="js/vidyo.js"></script>
   <!-- Including the Vidyo.io package by adding the javascript path. -->
   <script src="https://static.vidyo.io/latest/javascript/VidyoClient/VidyoClient.js?onload=onVidyoClientLoaded"></script>
+  <!--  Include Temasys SkylinkJS  -->
+  <script src="https://cdn.temasys.io/skylink/skylinkjs/0.6.x/skylink.complete.min.js"></script>
+  <!-- Including chat.js  -->
+  <script src="js/chat.js"></script>
 </head>
 
 <!-- The scrollable area -->
@@ -31,11 +35,11 @@
 
 <!-- body layout -->
 <div class="overall-container">
-  <div class="row"> 
+  <div class="row">
     <!-- left side -->
     <div class="cell-1">
         <div class="well chatbox" style="width: 80%; height: 500px;">
-          <div class="weather"> 
+          <div class="weather">
             <div class="weatherContainer ">
               <h2><span id="location"></span></h2>
             </div>
@@ -46,7 +50,9 @@
             <!-- chat output -->
           </div>
         </div>
-      <input class="form-control chat-input" id="text" onkeyup="sendText()"></input>
+        <button onclick="joinRoom()">Join room</button>
+      <input class="form-control chat-input" id="text" onkeyup=""></input>
+      <button onclick="sendMessage()">Send message</button>
       <div class="callButtons">
         <button class="btn btn-primary" alt="Toggle Video"><span class="glyphicon glyphicon-facetime-video" style="font-size:2.5em;"></span></button>
         <button class="btn btn-success" alt="Mute"><span class="fa fa-3x fa-deaf"></span></button>
@@ -54,7 +60,7 @@
         <button class="btn btn-info" alt="Add User"><span class="glyphicon glyphicon-plus-sign" style="font-size:2.5em;"></span></button>
       </div>
     </div>
-    
+
     <!-- right side -->
     <div class="cell cell-3 col-md-8">
       <h1 style="text-align:center;"> Be nice, no profanity. </h1>
@@ -63,14 +69,14 @@
       </h1>
     </div>
   </div>
-</div>  
-  
-  
+</div>
+
+
 </body>
 
 <script>
   var vidyoConnector;
-  
+
   // Callback method when VidyoIO is done loading (pointer to this method is passed in the onload parameter while including the
    // VidyoClient.js file)
     function onVidyoClientLoaded(status) {
