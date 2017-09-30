@@ -7,6 +7,7 @@ skylink.init({
 
 $( document ).ready(function() {
     joinRoom();
+    setName();
 });
 
 function setName() {
@@ -15,7 +16,6 @@ function setName() {
     name: username
   });
 }
-setName();
 
 function joinRoom() {
   console.log("Join Room");
