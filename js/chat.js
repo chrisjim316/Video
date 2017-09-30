@@ -5,6 +5,10 @@ skylink.init({
   defaultRoom: 'demoRoom'
 });
 
+$( document ).ready(function() {
+    joinRoom();
+});
+
 function setName() {
   var username = getParameterByName('username');
   skylink.setUserData({
@@ -14,6 +18,7 @@ function setName() {
 setName();
 
 function joinRoom() {
+  console.log("Join Room");
   skylink.joinRoom();
 }
 
