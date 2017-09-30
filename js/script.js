@@ -37,6 +37,11 @@ function getWeather(urlString) {
   });
 }
 
+function sendText() {
+  var text = $("#text").val();
+  $("#chatOutput").append(text + "<br>");
+}
+
   
 
    
