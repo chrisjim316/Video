@@ -28,6 +28,7 @@ function leaveRoom() {
 
 function sendMessage() {
   var input = document.getElementById('text');
+  
   skylink.sendP2PMessage(input.value);
   input.value = '';
 }
