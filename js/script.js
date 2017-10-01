@@ -1,4 +1,4 @@
-/* get local weather api */
+ /* get local weather api */
 var api = "https://fcc-weather-api.glitch.me/api/current?";
 /* get wikipedia api */
 var wikiAPI = "//en.wikipedia.org/w/api.php";
@@ -24,14 +24,6 @@ function getLocation() {
       $.ajax({
         url: "https://ipinfo.io/", dataType: "json", success: function (result) {
           $("#location").append(result.city + " " + result.country); 
-        }  
-      });
-}
-
-function getLocationText() {
-      $.ajax({
-        url: "https://ipinfo.io/", dataType: "json", success: function (result) {
-          return result.country;
         }  
       });
 }
