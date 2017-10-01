@@ -1,4 +1,7 @@
+/* get local weather api */
 var api = "https://fcc-weather-api.glitch.me/api/current?";
+/* get wikipedia api */
+var wikiAPI = "//en.wikipedia.org/w/api.php";
 
 $(document).ready( function() {
   
@@ -12,15 +15,23 @@ $(document).ready( function() {
         getLocation();
       });
     } else {
-      $("#error").append("Unable to retrieve location. Change or update browser version");
-      console.log("Geolocation is not supported for this browser.")
+      console.log("Geolocation is not supported for this browser.");
     }
+  
 });
 
 function getLocation() {
       $.ajax({
         url: "https://ipinfo.io/", dataType: "json", success: function (result) {
           $("#location").append(result.city + " " + result.country); 
+        }  
+      });
+}
+
+function getLocationText() {
+      $.ajax({
+        url: "https://ipinfo.io/", dataType: "json", success: function (result) {
+          return result.country;
         }  
       });
 }
@@ -41,6 +52,14 @@ function sendText() {
   var text = $("#text").val();
   $("#chatOutput").append(text + "<br>");
 }
+
+/* send the text message when enter key is pressed. */
+search.keypress(function (e) {
+  if (e.which == 13) {
+    sendText();
+    return false; //prevent refreshing the page every time enter key is pressed. 
+  }
+});
 
   
 
