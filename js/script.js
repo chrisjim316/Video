@@ -46,12 +46,14 @@ function sendText() {
 }
 
 /* send the text message when enter key is pressed. */
-$(".chat-input").keypress(function (e) {
+$("#text").keypress(function (e) {
   if (e.which == 13) {
-    sendText();
+    $("#send").click();
     return false; //prevent refreshing the page every time enter key is pressed. 
   }
 });
+
+
   
 
    
