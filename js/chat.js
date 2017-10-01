@@ -72,15 +72,15 @@ skylink.on('incomingMessage', function(message, peerId, peerInfo, isSelf) {
   var content = message.content;
   addMessage(user + ': ' + content, className);
 
-  var keyword = ""
-  $.post("http://localhost:5000/postmethod", content, function(data){
-    console.log(data);
-    var keyword = data["keyword"][0]
-  });
+//   var keyword = ""
+//   $.post("http://localhost:5000/postmethod", content, function(data){
+//     console.log(data);
+//     var keyword = data["keyword"][0]
+//   });
 
   if(!isSelf) {
-    getRelevantInfo(keyword);
-    getSuggestions(keyword);
+    getRelevantInfo(content);
+    getSuggestions(content);
   }
 });
 
