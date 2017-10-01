@@ -50,8 +50,10 @@ $("#toggleVideo").on("click", function () {
 
 function sendText() {
   var text = $("#text").val();
+  console.log(text);
   $("#chatOutput").append(text + "<br>");
   console.log(text);
+  console.log($("#chatOutput").val());
   getRelevantInfo(text);
   getSuggestions(text);
 }
