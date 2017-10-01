@@ -48,7 +48,7 @@ $("#toggleVideo").on("click", function () {
   }
 });
 
-function sendText() {
+function sendMessage() {
   var text = $("#text").val();
   console.log(text);
   $("#chatOutput").append(text + "<br>");
