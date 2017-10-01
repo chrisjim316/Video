@@ -1,4 +1,4 @@
- /* get local weather api */
+/* get local weather api */
 var api = "https://fcc-weather-api.glitch.me/api/current?";
 /* get wikipedia api */
 var wikiAPI = "//en.wikipedia.org/w/api.php";
@@ -43,6 +43,8 @@ function getWeather(urlString) {
 function sendText() {
   var text = $("#text").val();
   $("#chatOutput").append(text + "<br>");
+  var mostRecentText = $("#chatOutput").val().split("\n")[0];
+  console.log(mostRecentText);
 }
 
 /* send the text message when enter key is pressed. */
