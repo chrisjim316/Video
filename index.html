@@ -78,16 +78,17 @@
 </body>
 
 <script>
-// $(document).ready( function() {
-//   $("#text").on( "keypress", function(event) {
-//     if (event.which == 13) {
-//       console.log($("#text").val());
-//       $.post("http://localhost:5000/postmethod", $("#text"), function(data){
-//         console.log(data);
-//       });
-//     }
-//   });
-// });
+$(document).ready( function() {
+  $("#text").on( "keypress", function(event) {
+    if (event.which == 13) {
+      console.log($("#text").val());
+      $.post("//localhost:5000/postmethod", $("#text"), function(data){
+        $("#image").html('<img src="' + data["url"][0] + '">');
+        console.log(data);
+      });
+    }
+  });
+});
 
   var vidyoConnector;
 
