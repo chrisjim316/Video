@@ -71,8 +71,10 @@ skylink.on('incomingMessage', function(message, peerId, peerInfo, isSelf) {
   }
   var content = message.content;
   addMessage(user + ': ' + content, className);
-  getRelevantInfo(content);
-  getSuggestions(content);
+  if(!isSelf) {
+    getRelevantInfo(content);
+    getSuggestions(content);
+  }
 });
 
 function getParameterByName(name, url) {
