@@ -28,7 +28,7 @@ function leaveRoom() {
 
 function sendMessage() {
   var input = document.getElementById('text');
-  
+
   skylink.sendP2PMessage(input.value);
   input.value = '';
   /*
@@ -71,9 +71,16 @@ skylink.on('incomingMessage', function(message, peerId, peerInfo, isSelf) {
   }
   var content = message.content;
   addMessage(user + ': ' + content, className);
+
+  var keyword = ""
+  $.post("http://localhost:5000/postmethod", content, function(data){
+    console.log(data);
+    var keyword = data["keyword"][0]
+  });
+
   if(!isSelf) {
-    getRelevantInfo(content);
-    getSuggestions(content);
+    getRelevantInfo(keyword);
+    getSuggestions(keyword);
   }
 });
 
@@ -94,12 +101,12 @@ function getRelevantInfo (text) {
     dataType: 'jsonp',
     /* generate html for the first search result */
     success: function (data) {
-      var html = '';  
+      var html = '';
       data.query.search.map(function(res) {
         html += '<div class="well">';
         html += res.snippet;
         html += '</div>';
-      });  
+      });
       $("#wiki").html(html);
     }
   });//end ajax function
@@ -109,13 +116,13 @@ function getRelevantInfo (text) {
 function getSuggestions (text) {
   $.ajax({
     url: wikiAPI,
-    data: { action: 'query', list: 'search', srsearch: text, format: 'json' }, //srsearch searches for all results associated with the keywords     
+    data: { action: 'query', list: 'search', srsearch: text, format: 'json' }, //srsearch searches for all results associated with the keywords
     dataType: 'jsonp',
     /* generate html for each search result (10 results by default) */
     success: function (data) {
       var html = '';
           html += '  <div class="row row-centered">';
-      
+
       data.query.search.map(function(res) {
         html += '    <div class="col-md-6">';
         html += '      <a href="https://en.wikipedia.org/wiki/' + res.title + '" target="_blank">';
@@ -130,9 +137,9 @@ function getSuggestions (text) {
         html += '      </a>';
         html += '    </div>';
       });
-      
+
       html += '  </div>';
-      
+
       $("#suggestions").html(html);
     }
     });//end ajax function
