@@ -7,6 +7,7 @@ body, html,.container {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  padding-top: 20px;
 }
 
 .overall-container {
@@ -29,7 +30,7 @@ body, html,.container {
 /* Navigation - left side */
 .cell-1 {
   background: #009999;
-  height: 1400px;
+  height: 1600px;
   padding-left: 30px;
   padding-top: 150px;
 }
@@ -52,7 +53,7 @@ body, html,.container {
 #chatOutput {
   background-color: white;
   color: black;
-  height: 50%;
+  height: 65%;
   overflow: scroll;
   display: flex;
   flex-direction: column-reverse;
@@ -62,14 +63,10 @@ body, html,.container {
   background-color: #009999;
 }
 
-chatbox {
-  position: relative;
-  display: block;
-  top: 600px;
+.chatbox {
   background-color: #004d4d !important;
   width: 90%;
-  height: 300px;
-  color: black;
+  min-height: 45%;
 }
 
 .well-video {
@@ -125,3 +122,4 @@ background scroll effects only work in desktop versions with larger   screen siz
 /*ipad screens*/
 @media (max-width: 1000px) and (min-width: 600px) {
 }
+
