@@ -39,7 +39,6 @@ body, html,.container {
 .cell-3 {
   display: block;
   position: relative;
-  top: -85px;
   background: #004d4d;
   min-height: 100%;
 }
