@@ -40,11 +40,20 @@ function getWeather(urlString) {
   });
 }
 
+$("#toggleVideo").on("click", function () {
+  if($("#renderer").style.display == 'none') {
+    $("#renderer").style.display == '';
+  } else {
+    $("#renderer").style.display == 'none';
+  }
+});
+
 function sendText() {
   var text = $("#text").val();
   $("#chatOutput").append(text + "<br>");
   var mostRecentText = $("#chatOutput").val().split("\n")[0];
   console.log(mostRecentText);
+  $("#text").html("");
 }
 
 /* send the text message when enter key is pressed. */
@@ -54,13 +63,3 @@ $("#text").keypress(function (e) {
     return false; //prevent refreshing the page every time enter key is pressed. 
   }
 });
-
-
-  
-
-   
-
-
-
-
-
