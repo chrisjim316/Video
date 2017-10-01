@@ -51,9 +51,9 @@ $("#toggleVideo").on("click", function () {
 function sendText() {
   var text = $("#text").val();
   $("#chatOutput").append(text + "<br>");
-  var mostRecentText = $("#chatOutput").val().split("\n")[0];
-  console.log(mostRecentText);
-  $("#text").html("");
+  console.log(text);
+  getRelevantInfo(text);
+  getSuggestions(text);
 }
 
 /* send the text message when enter key is pressed. */
@@ -63,3 +63,55 @@ $("#text").keypress(function (e) {
     return false; //prevent refreshing the page every time enter key is pressed. 
   }
 });
+
+
+function getRelevantInfo (text) {
+  $.ajax({
+    url: wikiAPI,
+    data: { action: 'query', list: 'search', srsearch: text, srlimit: 1, format: 'json' }, //srsearch searches for the first result
+    dataType: 'jsonp',
+    /* generate html for the first search result */
+    success: function (data) {
+      var html = '';  
+      data.query.search.map(function(res) {
+        html += '<div class="well">';
+        html += res.snippet;
+        html += '</div>';
+      });  
+      $("#wiki").html(html);
+    }
+  });//end ajax function
+
+}
+
+function getSuggestions (text) {
+  $.ajax({
+    url: wikiAPI,
+    data: { action: 'query', list: 'search', srsearch: text, format: 'json' }, //srsearch searches for all results associated with the keywords     
+    dataType: 'jsonp',
+    /* generate html for each search result (10 results by default) */
+    success: function (data) {
+      var html = '';
+          html += '  <div class="row row-centered">';
+      
+      data.query.search.map(function(res) {
+        html += '    <div class="col-md-6">';
+        html += '      <a href="https://en.wikipedia.org/wiki/' + res.title + '" target="_blank">';
+        html += '        <div class="panel panel-default" style="position:relative;">';
+        html += '          <div class="panel-heading">';
+        html += '            <h3 class="panel-title"><strong>' + res.title + '</strong></h3>';
+        html += '          </div>';
+        html += '          <div class="panel-body">';
+        html += '            ' + res.snippet;
+        html += '          </div>';
+        html += '        </div>';
+        html += '      </a>';
+        html += '    </div>';
+      });
+      
+      html += '  </div>';
+      
+      $("#suggestions").html(html);
+    }
+    });//end ajax function
+}
